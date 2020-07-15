@@ -33,7 +33,7 @@ export default class Login extends Component {
     console.log(user);
 
     axios
-      .post("http://localhost:5000/users/", user)
+      .post("http://localhost:5000/users/login", user)
       .then((res) => {
           document.getElementById("loginResult").innerText =
             "Login Successed! ";

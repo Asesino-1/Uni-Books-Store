@@ -4,10 +4,26 @@ const router = require('express').Router()
 // const jwt = require('jsonwebtoken')
 let User = require('../models/user.model')
 
-router.route('/get').get((req, res) => {
-    User.find()
-    .then(users => res.json(users))
-    .catch(err => res.status(400).json('Erorr: ' + err))
+router.route('/login').post((req, res) => {
+    var newUser = {};
+    newUser.email = req.body.email;
+    newUser.password = req.body.password;
+     User.findOne({ email: newUser.email })
+      .then(profile => {
+        if (!profile) {
+          res.send("User not exist");
+        } else if(newUser.password  === profile.password){
+          res.send("User exist");
+
+        }
+        else if(newUser.password  !== profile.password){
+            res.send("wronggggg");
+  
+          }
+         
+      })
+      .catch(err => res.status(400).json('Erorr: ' + err))
+        
 })
 
 router.route('/add').post((req, res) => {
