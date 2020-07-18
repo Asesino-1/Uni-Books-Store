@@ -63,8 +63,11 @@ export default class CreateUser extends Component {
     console.log(user);
 
     axios.post('http://localhost:5000/users/add', user)
-      .then(res => {document.getElementById('accoutCreated').innerText = "Account created Successfully! "});
-
+    .then(res => {
+      document.getElementById('accoutCreated').innerText = "Account created Successfully! "
+      setTimeout(function(){ window.location = "/login"; }, 1000);
+    })
+    .catch(() =>document.getElementById('accoutCreated').innerText = "The email is already exists! ")
     this.setState({
       username: '',
       email: '',

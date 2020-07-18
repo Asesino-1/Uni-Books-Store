@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Logout from "./logout"
 export default class Navbar extends Component {
 
   render() {
@@ -9,6 +10,7 @@ export default class Navbar extends Component {
           <li className="navbar-item">
           <Link to="/sign-up" className="nav-link">Create User</Link>
           <Link to="/login" className="nav-link">Login</Link>
+          <Link to="/logout" className="nav-link">Logout</Link>
 
           </li>
         </ul>
