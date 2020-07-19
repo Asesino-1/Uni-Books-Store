@@ -1,35 +1,39 @@
 // require('dotenv').config()
+const bcrypt = require('bcrypt')
 
 const router = require('express').Router()
 // const jwt = require('jsonwebtoken')
 let User = require('../models/user.model')
 
-router.route('/login').post((req, res) => {
+ router.route('/login').post(async(req, res) => {
     var newUser = {};
     newUser.email = req.body.email;
+
     newUser.password = req.body.password;
      User.findOne({ email: newUser.email })
-      .then(profile => {
+      .then(async profile => {
         if (!profile) {
           res.send("User not exist");
-        } else if(newUser.password  === profile.password){
-          res.send("User exist");
-
+        }else if(await bcrypt.compare(newUser.password, profile.password)){
+            res.send("success");
         }
-        else if(newUser.password  !== profile.password){
-            res.send("wronggggg");
-  
+        else if(newUser.password === profile.password){
+          res.send("success")
+        }
+        else if((newUser.password !== profile.password)){
+          res.send("wrong");
           }
-         
       })
       .catch(err => res.status(400).json('Erorr: ' + err))
         
 })
 
-router.route('/add').post((req, res) => {
+router.route('/add').post(async(req, res) => {
+  const hashedPassword = await bcrypt.hash(req.body.password, 10)
+
     const username = req.body.username
     const email = req.body.email
-    const password = req.body.password
+    const password = hashedPassword
     const firstname = req.body.firstname
     const lastname = req.body.lastname
 

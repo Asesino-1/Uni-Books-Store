@@ -63,8 +63,11 @@ export default class CreateUser extends Component {
     console.log(user);
 
     axios.post('http://localhost:5000/users/add', user)
-      .then(res => {document.getElementById('accoutCreated').innerText = "Account created Successfully! "});
-
+    .then(res => {
+      document.getElementById('accoutCreated').innerText = "Account created Successfully! "
+      setTimeout(function(){ window.location = "/login"; }, 1000);
+    })
+    .catch(() =>document.getElementById('accoutCreated').innerText = "The email is already exists! ")
     this.setState({
       username: '',
       email: '',
@@ -84,6 +87,7 @@ export default class CreateUser extends Component {
             <label>Username: </label>
             <input  type="text"
                 required
+                placeholder="username"
                 className="form-control"
                 name= "username"
                 value={this.state.name}
@@ -94,6 +98,7 @@ export default class CreateUser extends Component {
                 required
                 className="form-control"
                 name="email"
+                placeholder="email"
                 value={this.state.name}
                 onChange={this.handelChangeEmail}
                 />
@@ -102,6 +107,7 @@ export default class CreateUser extends Component {
                 required
                 className="form-control"
                 name="password"
+                placeholder="password"
                 value={this.state.name}
                 onChange={this.handelChangePassword}
                 />
@@ -110,6 +116,7 @@ export default class CreateUser extends Component {
                 required
                 className="form-control"
                 name="firstname"
+                placeholder="first name"
                 value={this.state.name}
                 onChange={this.handelChangeFirstname}
                 />
@@ -118,6 +125,7 @@ export default class CreateUser extends Component {
                 required
                 className="form-control"
                 name="lastname"
+                placeholder="last name"
                 value={this.state.name}
                 onChange={this.handelChangeLastname}
                 />
