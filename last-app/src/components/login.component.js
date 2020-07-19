@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { login } from '../utils';
-
+import {Input} from './AuthForm'
 export default class Login extends Component {
   constructor(props) {
     
@@ -67,7 +67,7 @@ export default class Login extends Component {
         <div className="form-group">
           <label htmlFor="email">Email address</label>
           <br />
-          <input
+          <Input
             onChange={this.onChangeemail}
             type="email"
             name="email"
@@ -83,13 +83,13 @@ export default class Login extends Component {
           <br />
           <label htmlFor="Password">Password</label>
           <br />
-          <input
+          <Input
             onChange={this.onChangepassword}
             type="password"
             name="password"
             className="form-control"
             id="password"
-            placeholder="password"
+            placeholder="Enter password"
             value={this.state.password}
             required
           />

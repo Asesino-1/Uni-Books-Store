@@ -31,9 +31,8 @@ function App(props) {
         <div className="container">
         <Route path="/sign-up" component={CreateUser} />
         <Route path="/login" component={Login} />
-        <Route path="/" component={HomePage} />
+        <Route path="/homepage" component={HomePage} />
         <PrivateRoute path="/profile" component={Profile} exact />
-        <PrivateRoute component={Dashboard} path="/dashboard" exact />
 
         </div>
     </Router>
