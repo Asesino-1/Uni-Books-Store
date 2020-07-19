@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { logout, isLogin } from '../utils';
-import NewNavbar from "./loggedOut_navbar"
-import LoggedInNavbar from "./loggedIn_navbar"
 
-export default class Navbar extends Component {
+export default class NewNavbar extends Component {
   constructor(props) {
     super(props);
 
@@ -24,12 +22,11 @@ handleLogout = () => {
       <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
         <ul className="navbar-nav mr-auto">
           <li className="navbar-item">
-          {this.state.isLogin ?
-        <LoggedInNavbar/>
-        :<NewNavbar/>
+          
+        <Link to="/sign-up" className="nav-link">Create User</Link>
+         <Link to="/login" className="nav-link">Login</Link>
 
-
-        }
+        
 
 
           </li>

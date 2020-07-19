@@ -37,10 +37,6 @@ return (
           <br></br>
           <br></br>
         </Form>
-        {this.state.isLogin ?
-        <Button onClick={() => this.handleLogout()}>Log out</Button>
-        : <Redirect to="/login"/> 
-        }
         </div>
     );
 }

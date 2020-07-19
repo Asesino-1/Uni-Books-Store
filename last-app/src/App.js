@@ -4,6 +4,8 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import Dashboard from './components/Dashboard';
 
 import Navbar from "./components/navbar.component"
+import NewNavbar from "./components/loggedOut_navbar"
+
 import CreateUser from "./components/sign-up.component"
 import Login from "./components/login.component"
 import HomePage from "./components/homepage.component"
@@ -29,7 +31,7 @@ function App(props) {
         <div className="container">
         <Route path="/sign-up" component={CreateUser} />
         <Route path="/login" component={Login} />
-        <Route path="/homepage" component={HomePage} />
+        <Route path="/" component={HomePage} />
         <PrivateRoute path="/profile" component={Profile} exact />
         <PrivateRoute component={Dashboard} path="/dashboard" exact />
 
