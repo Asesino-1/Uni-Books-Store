@@ -1,12 +1,32 @@
-import React, { Component } from "react"
+import React, { Component } from 'react';
+import { logout, isLogin } from '../utils';
+import { Link } from 'react-router-dom';
 
-export default class HomePage extends Component {
-    render() {
-      return (
-          <div>
-          ​<h1>hello world</h1>
-          </div>
-      );
+class HomePage extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            isLogin: isLogin()
+        }
     }
-  }
-  
+
+    handleLogout = () => {
+        logout();
+        this.setState({
+            isLogin: false
+        })
+    }
+
+    render() {
+        return (
+            <div>
+                <h1>Home</h1>
+
+            </div>
+        );
+    }
+}
+
+export default HomePage;

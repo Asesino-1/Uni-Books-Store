@@ -87,6 +87,7 @@ export default class CreateUser extends Component {
             <label>Username: </label>
             <input  type="text"
                 required
+                placeholder="username"
                 className="form-control"
                 name= "username"
                 value={this.state.name}
@@ -97,6 +98,7 @@ export default class CreateUser extends Component {
                 required
                 className="form-control"
                 name="email"
+                placeholder="email"
                 value={this.state.name}
                 onChange={this.handelChangeEmail}
                 />
@@ -105,6 +107,7 @@ export default class CreateUser extends Component {
                 required
                 className="form-control"
                 name="password"
+                placeholder="password"
                 value={this.state.name}
                 onChange={this.handelChangePassword}
                 />
@@ -113,6 +116,7 @@ export default class CreateUser extends Component {
                 required
                 className="form-control"
                 name="firstname"
+                placeholder="first name"
                 value={this.state.name}
                 onChange={this.handelChangeFirstname}
                 />
@@ -121,6 +125,7 @@ export default class CreateUser extends Component {
                 required
                 className="form-control"
                 name="lastname"
+                placeholder="last name"
                 value={this.state.name}
                 onChange={this.handelChangeLastname}
                 />

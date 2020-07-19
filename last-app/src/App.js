@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom"
 import "bootstrap/dist/css/bootstrap.min.css"
+import Dashboard from './components/Dashboard';
 
 import Navbar from "./components/navbar.component"
 import CreateUser from "./components/sign-up.component"
@@ -29,7 +30,8 @@ function App(props) {
         <Route path="/sign-up" component={CreateUser} />
         <Route path="/login" component={Login} />
         <Route path="/homepage" component={HomePage} />
-        <PrivateRoute path="/profile" component={Profile} />
+        <PrivateRoute path="/profile" component={Profile} exact />
+        <PrivateRoute component={Dashboard} path="/dashboard" exact />
 
         </div>
     </Router>

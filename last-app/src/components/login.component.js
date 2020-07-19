@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { login } from '../utils';
+
 export default class Login extends Component {
   constructor(props) {
+    
     super(props);
     this.onChangeemail = this.onChangeemail.bind(this);
     this.onChangepassword = this.onChangepassword.bind(this);
@@ -12,6 +15,10 @@ export default class Login extends Component {
       email: "",
       password: "",
     };
+     this.handleLogin = () => {
+      login();
+  }
+
   }
 
   onChangeemail(e) {
@@ -44,6 +51,7 @@ export default class Login extends Component {
         } else if (res.data === "success") {
           document.getElementById("loginResult").innerText =
             "Login Successed! ";
+            this.handleLogin()
             setTimeout(function(){ window.location = "/homepage"; }, 1000);
         }
         localStorage.setItem("myEmail", res.data.user.email);
