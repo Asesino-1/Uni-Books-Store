@@ -23,7 +23,7 @@ handleLogout = () => {
         <ul className="navbar-nav mr-auto">
           <li className="navbar-item">
           
-        <Link to="/sign-up" className="nav-link">Create User</Link>
+        <Link to="/sign-up" className="nav-link">Sign up</Link>
          <Link to="/login" className="nav-link">Login</Link>
 
         

@@ -22,9 +22,15 @@ const Form = styled.div`
 
 const Input = styled.input`
   padding: 1rem;
-  border: 1px solid #999;
+  border: 1px solid #99;
   margin-bottom: 1rem;
-  font-size: 0.8rem;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20%;
+  font-family: Arial;
+
 `;
 
 const Button = styled.button`

@@ -15,6 +15,7 @@ handleLogout = () => {
   this.setState({
       isLogin: false
   })
+   window.location = "/homepage"; 
 }
 
   render() {
@@ -22,13 +23,10 @@ handleLogout = () => {
       <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
         <ul className="navbar-nav mr-auto">
           <li className="navbar-item">
-          
-          <Link onClick={() => this.handleLogout()}>Log out</Link>
+
           <Link to="/profile" className="nav-link">Profile</Link>
-
-        
-
-
+          <Link onClick={() => this.handleLogout()} className="nav-link">Log out</Link>
+          
           </li>
         </ul>
       </nav>

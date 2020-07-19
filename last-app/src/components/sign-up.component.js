@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Link } from "react-router-dom";
 
 export default class CreateUser extends Component {
   constructor(props) {
@@ -135,6 +136,8 @@ export default class CreateUser extends Component {
           <div className="form-group">
             <input type="submit" value="Create User" className="btn btn-primary" />
           </div>
+          <Link to="/login"> Already have an account ! Log in </Link>
+          <br/>
           <p id="accoutCreated"></p>
 
         </form>
