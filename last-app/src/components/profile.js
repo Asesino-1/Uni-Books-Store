@@ -8,23 +8,25 @@ import axios from "axios"
 class Profile extends Component{
   constructor(props) {
     super(props);
-    this.onSubmit = this.onSubmit.bind(this);
-    this.state = {
-      email: "",
-      password: "",
-    };
-
-    this.state = {
-        isLogin: isLogin()
-    }
-    
+    this.getData = this.getData.bind(this);
+this.state ={
+email: "awselali77@gmail.com",
 }
-onSubmit = (e) => {
+}
+getData(e){
   e.preventDefault();
   const user = {
-    email: this.state.email,
-    password: this.state.password,
-  };
+  email: this.state.email,
+  }
+  // console.log(user);
+  axios
+.get("http://localhost:5000/users/get",user)
+.then((res) =>{
+  console.log(res.data)
+var x = res.data
+  document.getElementById("loginResult").innerText = (x.email)
+  // console.log(res)
+})
 }
 
 render(){
@@ -44,10 +46,12 @@ return (
           <br></br>
           <br></br>
           <br></br>
-          <Button>edit my profile</Button>
+          <Button onClick={this.getData}>edit my profile</Button>
           <br></br>
           <br></br>
         </Form>
+        <p id="loginResult"></p>
+
         </div>
     );
 }

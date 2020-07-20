@@ -5,10 +5,15 @@ const router = require('express').Router()
 // const jwt = require('jsonwebtoken')
 let User = require('../models/user.model')
 
+router.route('/get').get((req, res) => {
+  var acc = x;
+  User.findOne({ email: acc })
+  .then(users => res.send((users))) 
+})
  router.route('/login').post(async(req, res) => {
     var newUser = {};
     newUser.email = req.body.email;
-
+ var x = newUser.email
     newUser.password = req.body.password;
      User.findOne({ email: newUser.email })
       .then(async profile => {
