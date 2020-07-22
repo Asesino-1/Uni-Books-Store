@@ -1,48 +1,44 @@
 import React, { Component } from "react";
-import { Button,Form,Card,Title } from "./AuthForm";
+import { Button, Form, Card, Title } from "./AuthForm";
 import { useAuth } from "./auth";
-import { logout, isLogin } from '../utils';
+import { logout, isLogin } from "../utils";
 import { Redirect } from "react-router-dom";
-import axios from "axios"
+import axios from "axios";
 
-class Profile extends Component{
+class Profile extends Component {
   constructor(props) {
     super(props);
     this.getData = this.getData.bind(this);
-this.state ={
-email: "awselali77@gmail.com",
-}
-}
-getData(e){
-  e.preventDefault();
-  const user = {
-  email: this.state.email,
+    this.state = {
+      email: window.localStorage.getItem("myEmail"),
+    };
   }
-  // console.log(user);
-  axios
-.get("http://localhost:5000/users/get",user)
-.then((res) =>{
-  console.log(res.data)
-var x = res.data
-  document.getElementById("loginResult").innerText = (x.email)
-  // console.log(res)
-})
-}
 
-render(){
-  
-return (
-  <div>
+  getData(e) {
+    e.preventDefault();
+    const user = {
+      email: this.state.email,
+    };
+    console.log(user)
+
+    axios.get("http://localhost:5000/users/get", user).then((res) => {
+      var x = res.data;
+      console.log(res.data)
+      document.getElementById("loginResult").innerText = x.email;
+    });
+  }
+  render() {
+    return (
+      <div>
         <Form>
-          <span>First name : </span> 
+          <span>email : {this.state.email} </span>
+          <br></br>
+          <span>First name : </span>
           <br></br>
           <span>Last name : </span>
           <br></br>
-          <span>user name : </span>
+          <span>Username : </span>
           <br></br>
-          <span>email : </span>
-          <br></br>
-          <span>password : </span>
           <br></br>
           <br></br>
           <br></br>
@@ -51,11 +47,9 @@ return (
           <br></br>
         </Form>
         <p id="loginResult"></p>
-
-        </div>
+      </div>
     );
-}
   }
-
+}
 
 export default Profile;

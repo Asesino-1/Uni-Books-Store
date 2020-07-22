@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { login } from '../utils';
-import {Input} from './AuthForm'
+import { login } from "../utils";
+import { Input } from "./AuthForm";
+import Profile from "./profile";
 export default class Login extends Component {
   constructor(props) {
-    
     super(props);
     this.onChangeemail = this.onChangeemail.bind(this);
     this.onChangepassword = this.onChangepassword.bind(this);
@@ -15,10 +15,9 @@ export default class Login extends Component {
       email: "",
       password: "",
     };
-     this.handleLogin = () => {
+    this.handleLogin = () => {
       login();
-  }
-
+    };
   }
 
   onChangeemail(e) {
@@ -37,7 +36,7 @@ export default class Login extends Component {
       email: this.state.email,
       password: this.state.password,
     };
-    console.log(user);
+    // console.log(user);
 
     axios
       .post("http://localhost:5000/users/login", user)
@@ -48,17 +47,21 @@ export default class Login extends Component {
         } else if (res.data === "wrong") {
           document.getElementById("loginResult").innerText =
             "Login Failed! Wrong password! ";
-        } else if (res.data === "success") {
+        } else if (res.data.status === "success") {
           document.getElementById("loginResult").innerText =
             "Login Successed! ";
-            this.handleLogin()
-            setTimeout(function(){ window.location = "/homepage"; }, 1000);
+          this.handleLogin();
+          window.localStorage.setItem("myEmail", res.data.profile.email);
+          setTimeout(function(){ window.location = "/homepage";}, 1000);
+          // setTimeout(()=> <Profile message="hello" /> ,  2000);
+          console.log(res.data.user.email);
         }
-        localStorage.setItem("myEmail", res.data.user.email);
+        console.log(res.data.user.email);
+        window.localStorage.setItem("myEmail", res.data.user.email);
         localStorage.setItem("id", res.data.user._id);
         console.log(res.data);
       })
-      .catch(() => console.log());
+      .catch(() => console.log('error'));
   }
 
   render() {
@@ -67,7 +70,7 @@ export default class Login extends Component {
         <div className="form-group">
           <label htmlFor="email">Email address</label>
           <br />
-          <Input
+          <input
             onChange={this.onChangeemail}
             type="email"
             name="email"
@@ -79,11 +82,15 @@ export default class Login extends Component {
             required
           />
         </div>
+        {/* <div>
+        <Profile message="hello" />
+      </div> */}
+
         <div className="form-group">
           <br />
           <label htmlFor="Password">Password</label>
           <br />
-          <Input
+          <input
             onChange={this.onChangepassword}
             type="password"
             name="password"
@@ -99,13 +106,13 @@ export default class Login extends Component {
           <button type="submit" className="btn btn-primary">
             Login
           </button>
-          <br/>
-          <br/>
+          <br />
+          <br />
 
           <p>
             <Link to="/sign-up"> Email not Exists ! Sign Up </Link>
           </p>
-          <br/>
+          <br />
           <p id="loginResult"></p>
         </div>
       </form>

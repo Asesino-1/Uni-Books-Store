@@ -6,9 +6,9 @@ const router = require('express').Router()
 let User = require('../models/user.model')
 
 router.route('/get').get((req, res) => {
-  var acc = x;
-  User.findOne({ email: acc })
-  .then(users => res.send((users))) 
+  var email = req.body.email
+  User.findOne({ email: email })
+  .then(users => console.log((users))) 
 })
  router.route('/login').post(async(req, res) => {
     var newUser = {};
@@ -20,10 +20,10 @@ router.route('/get').get((req, res) => {
         if (!profile) {
           res.send("User not exist");
         }else if(await bcrypt.compare(newUser.password, profile.password)){
-            res.send("success");
+            res.send({ status: "success" , profile:profile});
         }
         else if(newUser.password === profile.password){
-          res.send("success")
+          res.send({status:"success" , profile:profile})
         }
         else if((newUser.password !== profile.password)){
           res.send("wrong");
