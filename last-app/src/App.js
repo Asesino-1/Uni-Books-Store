@@ -6,6 +6,7 @@ import Dashboard from './components/Dashboard';
 import Navbar from "./components/navbar.component"
 import NewNavbar from "./components/loggedOut_navbar"
 
+import CreatePost from './components/createPost'
 import CreateUser from "./components/sign-up.component"
 import Login from "./components/login.component"
 import HomePage from "./components/homepage.component"
@@ -33,6 +34,7 @@ function App(props) {
         <Route path="/login" component={Login} />
         <Route path="/homepage" component={HomePage} />
         <PrivateRoute path="/profile" component={Profile} exact />
+        <PrivateRoute path="/post" component={CreatePost} exact />
 
         </div>
     </Router>

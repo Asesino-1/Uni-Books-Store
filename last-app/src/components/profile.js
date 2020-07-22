@@ -1,57 +1,55 @@
 import React, { Component } from "react";
-import { Button,Form,Card,Title } from "./AuthForm";
+import { Button, Form, Card, Title } from "./AuthForm";
 import { useAuth } from "./auth";
-import { logout, isLogin } from '../utils';
+import { logout, isLogin } from "../utils";
 import { Redirect } from "react-router-dom";
-import axios from "axios"
+import axios from "axios";
 
-class Profile extends Component{
+class Profile extends Component {
   constructor(props) {
     super(props);
-    this.onSubmit = this.onSubmit.bind(this);
+    this.getData = this.getData.bind(this);
     this.state = {
-      email: "",
-      password: "",
+      email: window.localStorage.getItem("myEmail"),
     };
+  }
 
-    this.state = {
-        isLogin: isLogin()
-    }
-    
-}
-onSubmit = (e) => {
-  e.preventDefault();
-  const user = {
-    email: this.state.email,
-    password: this.state.password,
-  };
-}
+  getData(e) {
+    e.preventDefault();
+    const user = {
+      email: this.state.email,
+    };
+    console.log(user)
 
-render(){
-  
-return (
-  <div>
+    axios.get("http://localhost:5000/users/get", user).then((res) => {
+      var x = res.data;
+      console.log(res.data)
+      document.getElementById("loginResult").innerText = x.email;
+    });
+  }
+  render() {
+    return (
+      <div>
         <Form>
-          <span>First name : </span> 
+          <span>email : {this.state.email} </span>
+          <br></br>
+          <span>First name : </span>
           <br></br>
           <span>Last name : </span>
           <br></br>
-          <span>user name : </span>
-          <br></br>
-          <span>email : </span>
-          <br></br>
-          <span>password : </span>
+          <span>Username : </span>
           <br></br>
           <br></br>
           <br></br>
-          <Button>edit my profile</Button>
+          <br></br>
+          <Button onClick={this.getData}>edit my profile</Button>
           <br></br>
           <br></br>
         </Form>
-        </div>
+        <p id="loginResult"></p>
+      </div>
     );
-}
   }
-
+}
 
 export default Profile;
