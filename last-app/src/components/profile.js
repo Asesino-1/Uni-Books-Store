@@ -10,21 +10,23 @@ class Profile extends Component {
     super(props);
     this.getData = this.getData.bind(this);
     this.state = {
-      email: window.localStorage.getItem("myEmail"),
+      email: "",
     };
   }
 
   getData(e) {
     e.preventDefault();
-    const user = {
-      email: this.state.email,
+    var userEmail = window.localStorage.getItem("myEmail")
+    console.log(userEmail)
+    this.setState({email:window.localStorage.getItem("myEmail")})
+    console.log(this.state," hi")
+    let user = {
+      umail: this.state.email
     };
     console.log(user)
-
     axios.get("http://localhost:5000/users/get", user).then((res) => {
-      var x = res.data;
-      console.log(res.data)
-      document.getElementById("loginResult").innerText = x.email;
+      console.log(res)
+      document.getElementById("loginResult").innerText = res.data.email;
     });
   }
   render() {

@@ -1,6 +1,14 @@
 const router = require('express').Router()
 
 let Post = require('../models/post')
+const { db } = require('../models/post')
+
+router.route('/get').get(function(req ,res){ 
+    Post.find({},function(err,posts){
+        res.json(posts)
+    })
+    .catch(err => console.error(`Failed to find documents: ${err}`))
+  })
 
 router.route('/add').post((req, res) => {
   

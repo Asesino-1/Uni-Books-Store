@@ -8,13 +8,16 @@ const postSchema = new Schema({
         required: true
     },
     phone:{
-        type:Number,
-        required:true
+        type:String,
+        required:true,
+        minlength: 10
     },
     place:{
         type:String,
         required:true
     }
+}, {
+    timestamps: true,
 })
 
 const Post = mongoose.model('Post', postSchema)
