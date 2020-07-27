@@ -7,6 +7,12 @@ const postSchema = new Schema({
         type:String,
         required: true
     },
+    img:{
+         data: Buffer, contentType: String 
+    },
+    price:{
+        type:String
+    },
     phone:{
         type:String,
         required:true,

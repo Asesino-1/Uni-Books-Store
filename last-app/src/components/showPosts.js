@@ -7,15 +7,13 @@ import Profile from "./profile";
 export default class ShowPosts extends Component {
   constructor(props) {
     super(props);
-    this.onSubmit = this.onSubmit.bind(this);
+    // this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
       data: []
     };
   }
-
-  onSubmit(e) {
-    e.preventDefault();
+  componentDidMount = () => {
     const post = {
       phone: this.state.data.phone,
       details: this.state.data.details,
@@ -26,12 +24,19 @@ export default class ShowPosts extends Component {
       .get("http://localhost:5000/posts/get", post)
       .then((req) => {
           this.setState({data:req.data})
-          console.log(this.state.data)
+        
       })
       .catch(() => console.log('error'));
   }
 
+
   render() {
+    function Price(item){
+    if(item === "0"){
+      return "Free"
+    }
+    return item +" JD"
+    }
     function takeDate (date){
       var result = []
       for(var i = 0; i < 10; i++){
@@ -41,7 +46,7 @@ export default class ShowPosts extends Component {
     }
     function takeTime(time){
       var result = []
-      for(var i = 11; i < 19; i++){
+      for(var i = 11; i < 16; i++){
         result.push(time[i])
       }
       return result.join('')
@@ -54,15 +59,18 @@ export default class ShowPosts extends Component {
         </div>
 
 {
+  
   this.state.data.map((item,index) => (
-  <li>{"details : " + item.details + ", phone number : " + item.phone + ", city : " + item.place + ", puplished at : " + takeDate(item.createdAt) + " At " + takeTime(item.createdAt) }</li>
-  ))
-}
-        <div className="form-group">
-            <button onClick={this.onSubmit} >show posts</button>
+    <ul key={index}>
+  <li key ={item.phone} >{"phone number : " + item.phone  }</li><br/>
+  <li key ={item.details}>{"details : " + item.details}</li><br/>
+  <li key ={item.place}>{"city : " + item.place}</li> <br/>
+  <li style={{ color: 'green' }} key ={item.price}>{"Price : " + Price(item.price)}</li><br/>
+  <li key ={item.createdAt}>{"puplished at : " + takeDate(item.createdAt) + " At " + takeTime(item.createdAt)}</li>
 
-          <br />
-        </div>
+ <br/><br/><br/>
+ </ul> ))
+}
       </form>
     );
   }
