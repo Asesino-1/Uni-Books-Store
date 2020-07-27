@@ -8,14 +8,13 @@ import axios from "axios";
 class Profile extends Component {
   constructor(props) {
     super(props);
-    this.getData = this.getData.bind(this);
+    // this.getData = this.getData.bind(this);
     this.state = {
       email: "",
     };
   }
 
-  getData(e) {
-    e.preventDefault();
+  componentDidMount = () => {
     var userEmail = window.localStorage.getItem("myEmail")
     console.log(userEmail)
     this.setState({email:window.localStorage.getItem("myEmail")})

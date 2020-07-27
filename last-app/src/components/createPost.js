@@ -9,13 +9,15 @@ export default class CreatePost extends Component {
     this.handelChangePhone = this.handelChangePhone.bind(this);
     this.handelChangeDetails = this.handelChangeDetails.bind(this);
     this.handelChangePlace = this.handelChangePlace.bind(this);
+    this.handelChangePrice = this.handelChangePrice.bind(this);
 
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
       phone: '',
       details: '',
-      place: ''
+      place: '',
+      price:'',
     }
   }
 
@@ -23,6 +25,12 @@ export default class CreatePost extends Component {
     this.setState({
         phone: e.target.value
     })
+  }
+    handelChangePrice=(e) =>{
+      this.setState({
+          price: e.target.value
+      })
+  
   }
   handelChangeDetails(e) {
     this.setState({
@@ -42,19 +50,30 @@ export default class CreatePost extends Component {
     const post = {
         phone: this.state.phone,
         details: this.state.details,
-        place: this.state.place
+        place: this.state.place,
+        price:this.state.price,
     }
 
-    console.log(post.phone.length);
     if(post.phone.length !== 10){
       document.getElementById('accoutCreated').innerText = "Phone number have to be 10 characters! "
     }
+    if(post.place === ""){
+      document.getElementById('accoutCreated').innerText = "Please select a city! "
+    }
+    if(this.state.place === "Please select one"){
+      this.setState({
+        place : ""
+      })
+
+    }
+
 
     axios.post('http://localhost:5000/posts/add', post)
 
     .then(res => {
       document.getElementById('accoutCreated').innerText = "Post created Successfully! "
-      
+      setTimeout(function(){ window.location = "/homepage"; }, 1000);
+
     })
 
   }
@@ -66,7 +85,7 @@ export default class CreatePost extends Component {
         <form onSubmit={this.onSubmit}>
           <div className="form-group"> 
             <label>Description: </label>
-            <input  type="text"
+            <textarea  type="text"
                 required
                 placeholder="details"
                 className="form-control"
@@ -74,21 +93,22 @@ export default class CreatePost extends Component {
                 value={this.state.name}
                 onChange={this.handelChangeDetails}
                 />
-                <label>Place: </label>
-            <input  type="text"
-                required
+                <label>City: </label>
+            <select  type="text"
+                
                 className="form-control"
                 name="place"
                 placeholder="place"
                 value={this.state.name}
                 onChange={this.handelChangePlace}
-                />
-                  {/* <option>amman </option>
+                required>
+                  <option>amman </option>
                   <option>irbid </option>
                   <option>aqaba </option>
-                  <option>karak </option> */}
+                  <option>karak </option>
+                  </select>
               <label>Phone number: </label>
-            <input  type="text"
+            <input  type="number"
                 required
                 className="form-control"
                 name="number"
@@ -97,6 +117,15 @@ export default class CreatePost extends Component {
                 onChange={this.handelChangePhone}
                 />
 
+<label>Price: </label>
+            <input  type="number"
+                required
+                placeholder="Price"
+                className="form-control"
+                name= "price"
+                value={this.state.name}
+                onChange={this.handelChangePrice}
+                />
 
           </div>
           <div className="form-group">

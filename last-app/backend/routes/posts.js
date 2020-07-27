@@ -15,8 +15,10 @@ router.route('/add').post((req, res) => {
       const details = req.body.details
       const phone = req.body.phone
       const place = req.body.place
+      const img = req.body.img
+      const price = req.body.price
   
-      const newPost = new Post({details,phone,place})
+      const newPost = new Post({details,phone,place,img,price})
       
       // const accessToken = jwt.sign(password, process.env.ACCESS_TOKEN_SECRET)
       // res.json({ accessToken: accessToken })
