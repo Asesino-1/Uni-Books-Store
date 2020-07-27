@@ -45,11 +45,16 @@ export default class CreatePost extends Component {
         place: this.state.place
     }
 
-    console.log(post);
+    console.log(post.phone.length);
+    if(post.phone.length !== 10){
+      document.getElementById('accoutCreated').innerText = "Phone number have to be 10 characters! "
+    }
 
     axios.post('http://localhost:5000/posts/add', post)
+
     .then(res => {
       document.getElementById('accoutCreated').innerText = "Post created Successfully! "
+      
     })
 
   }
@@ -60,7 +65,7 @@ export default class CreatePost extends Component {
         <h3>Create New Post</h3>
         <form onSubmit={this.onSubmit}>
           <div className="form-group"> 
-            <label>Details: </label>
+            <label>Description: </label>
             <input  type="text"
                 required
                 placeholder="details"
@@ -78,8 +83,12 @@ export default class CreatePost extends Component {
                 value={this.state.name}
                 onChange={this.handelChangePlace}
                 />
+                  {/* <option>amman </option>
+                  <option>irbid </option>
+                  <option>aqaba </option>
+                  <option>karak </option> */}
               <label>Phone number: </label>
-            <input  type="number"
+            <input  type="text"
                 required
                 className="form-control"
                 name="number"

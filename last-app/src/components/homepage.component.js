@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { logout, isLogin } from '../utils';
 import { Link } from 'react-router-dom';
+import ShowPosts from './showPosts'
 
 class HomePage extends Component {
 
@@ -23,7 +24,7 @@ class HomePage extends Component {
         return (
             <div>
                 <h1>Home</h1>
-
+                <ShowPosts/>
             </div>
         );
     }

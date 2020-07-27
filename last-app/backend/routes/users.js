@@ -7,23 +7,23 @@ let User = require('../models/user.model')
 
 router.route('/get').get((req, res) => {
   var email = req.body.email
+  console.log(req.body)
   User.findOne({ email: email })
-  .then(users => console.log((users))) 
+  .then(users => res.send((users))) 
 })
  router.route('/login').post(async(req, res) => {
     var newUser = {};
     newUser.email = req.body.email;
- var x = newUser.email
     newUser.password = req.body.password;
      User.findOne({ email: newUser.email })
       .then(async profile => {
         if (!profile) {
           res.send("User not exist");
         }else if(await bcrypt.compare(newUser.password, profile.password)){
-            res.send({ status: "success" , profile:profile});
+            res.send("success");
         }
         else if(newUser.password === profile.password){
-          res.send({status:"success" , profile:profile})
+          res.send("success")
         }
         else if((newUser.password !== profile.password)){
           res.send("wrong");

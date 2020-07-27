@@ -47,19 +47,20 @@ export default class Login extends Component {
         } else if (res.data === "wrong") {
           document.getElementById("loginResult").innerText =
             "Login Failed! Wrong password! ";
-        } else if (res.data.status === "success") {
+        } else if (res.data === "success") {
           document.getElementById("loginResult").innerText =
             "Login Successed! ";
           this.handleLogin();
-          window.localStorage.setItem("myEmail", res.data.profile.email);
+          // console.log("hi",this.state.email)
+
+          window.localStorage.setItem("myEmail",this.state.email);
           setTimeout(function(){ window.location = "/homepage";}, 1000);
           // setTimeout(()=> <Profile message="hello" /> ,  2000);
-          console.log(res.data.user.email);
         }
-        console.log(res.data.user.email);
-        window.localStorage.setItem("myEmail", res.data.user.email);
-        localStorage.setItem("id", res.data.user._id);
-        console.log(res.data);
+        // console.log(res.data.user.email);
+        // window.localStorage.setItem("myEmail");
+        // localStorage.setItem("id");
+        // console.log(res.data);
       })
       .catch(() => console.log('error'));
   }
