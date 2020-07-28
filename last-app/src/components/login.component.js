@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { login } from "../utils";
-import { Input } from "./AuthForm";
-import Profile from "./profile";
+import { Card, Logo, Form, Input, Button } from './AuthForm';
+import logoImg from "./logo.jpg"
 export default class Login extends Component {
   constructor(props) {
     super(props);
@@ -68,54 +68,47 @@ export default class Login extends Component {
   render() {
     return (
       <form className="sign" onSubmit={this.onSubmit}>
-        <div className="form-group">
-          <label htmlFor="email">Email address</label>
-          <br />
-          <input
+                   <Card>
+                   <Logo src={logoImg} />
+
+                     <Form>
+ <label htmlFor="email">Email address</label>
+          <Input
             onChange={this.onChangeemail}
             type="email"
-            name="email"
+            name="email" 
             className="form-control"
             id="email"
             aria-describedby="emailHelp"
-            placeholder="Enter email"
+            placeholder="email"
             value={this.state.email}
             required
           />
-        </div>
         {/* <div>
         <Profile message="hello" />
       </div> */}
 
-        <div className="form-group">
-          <br />
           <label htmlFor="Password">Password</label>
-          <br />
-          <input
+          <Input
             onChange={this.onChangepassword}
             type="password"
             name="password"
             className="form-control"
             id="password"
-            placeholder="Enter password"
+            placeholder="password"
             value={this.state.password}
             required
           />
-        </div>
-        <br />
-        <div className="btn">
-          <button type="submit" className="btn btn-primary">
+          <Button type="submit" className="btn btn-primary">
             Login
-          </button>
-          <br />
-          <br />
-
-          <p>
+          </Button>
+</Form>
             <Link to="/sign-up"> Email not Exists ! Sign Up </Link>
-          </p>
           <br />
-          <p id="loginResult"></p>
-        </div>
+          <p id="loginResult"></p> 
+
+                           </Card>
+
       </form>
     );
   }
