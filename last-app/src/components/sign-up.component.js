@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from "react-router-dom";
+import { Card, Logo, Form, Input, Button } from './AuthForm';
+import logoImg from "./logo.jpg"
 
 export default class CreateUser extends Component {
   constructor(props) {
@@ -81,9 +83,10 @@ export default class CreateUser extends Component {
 
   render() {
     return (
-      <div>
-        <h3>Create New User</h3>
-        <form onSubmit={this.onSubmit}>
+      <Card>
+        <Logo src={logoImg} />
+
+        <Form onSubmit={this.onSubmit}>
           <div className="form-group"> 
             <label>Username: </label>
             <input  type="text"
@@ -134,14 +137,18 @@ export default class CreateUser extends Component {
 
           </div>
           <div className="form-group">
-            <input type="submit" value="Create User" className="btn btn-primary" />
+            <Button type="submit" className="btn btn-primary" >
+              Sign up
+            </Button>
           </div>
+          </Form>
+
           <Link to="/login"> Already have an account ! Log in </Link>
           <br/>
           <p id="accoutCreated"></p>
 
-        </form>
-      </div>
+        </Card>
+
     )
   }
 }
