@@ -23,7 +23,6 @@ class HomePage extends Component {
     render() {
         return (
             <div>
-                <h1>Posts</h1>
                 <ShowPosts/>
             </div>
         );

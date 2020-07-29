@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from "react-router-dom";
+import { Card, Form, Input, Button } from './AuthForm';
 
 export default class CreatePost extends Component {
   constructor(props) {
@@ -80,9 +81,13 @@ export default class CreatePost extends Component {
 
   render() {
     return (
-      <div>
+      <div>        
+        <Card>
+
         <h3>Create New Post</h3>
-        <form onSubmit={this.onSubmit}>
+          <Form>        
+            <form onSubmit={this.onSubmit}>
+
           <div className="form-group"> 
             <label>Description: </label>
             <textarea  type="text"
@@ -129,12 +134,16 @@ export default class CreatePost extends Component {
 
           </div>
           <div className="form-group">
-            <input type="submit" value="Create Post" className="btn btn-primary" />
+            <Button type="submit"  className="btn btn-primary" >
+            Create Post
+            </Button>
           </div>
           <br/>
-          <p id="accoutCreated"></p>
-
-        </form>
+          <p id="accoutCreated"></p> 
+          </form>
+          </Form>
+       
+        </Card>
       </div>
     )
   }

@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { login } from "../utils";
-import { Input } from "./AuthForm";
 import Profile from "./profile";
+import { Card, Form, Input, Button } from './AuthForm';
+
 export default class ShowPosts extends Component {
   constructor(props) {
     super(props);
@@ -61,6 +62,8 @@ export default class ShowPosts extends Component {
 {
   
   this.state.data.map((item,index) => (
+    <Card>
+      <Form>
     <ul key={index}>
   <li key ={item.phone} >{"phone number : " + item.phone  }</li><br/>
   <li key ={item.details}>{"details : " + item.details}</li><br/>
@@ -69,7 +72,10 @@ export default class ShowPosts extends Component {
   <li key ={item.createdAt}>{"puplished at : " + takeDate(item.createdAt) + " At " + takeTime(item.createdAt)}</li>
 
  <br/><br/><br/>
- </ul> ))
+ </ul> 
+ </Form>
+ </Card>
+ ))
 }
       </form>
     );
