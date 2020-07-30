@@ -20,20 +20,15 @@ handleLogout = () => {
 
   render() {
     return (
-      <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
-        <ul className="navbar-nav mr-auto">
-          <li className="navbar-item">
+      <div>
           {this.state.isLogin ?
         <LoggedInNavbar/>
         :<NewNavbar/>
 
 
         }
+</div>
 
-
-          </li>
-        </ul>
-      </nav>
     );
   }
 }
