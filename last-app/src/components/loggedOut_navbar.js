@@ -30,22 +30,19 @@ const LoggedOutNavbar = (props) => {
       text: "Home",
       icon: <HomeIcon />,
       onClick: () => 
-        props.history.push("/Admin")
+        props.history.push("/homepage")
     },
     {
-      text: "Add new admin",
+      text: "Sign up",
       icon: <PersonAddIcon />,
       onClick: () => 
-        props.history.push("/AddAdmin")
+        props.history.push("/sign-up")
     },
     {
-      text: "Logout",
+      text: "Login",
       icon: <ExitToAppIcon />,
       onClick: () => {
-        console.log(props);
-        localStorage.removeItem("usertoken");
-        console.log("Admin loged out");
-        props.history.push("/");
+        props.history.push("/login");
       },
     },
   ];
@@ -77,7 +74,7 @@ const LoggedOutNavbar = (props) => {
               <MenuIcon style={{ color: "#ffffff" }} />
             </IconButton>
             <Typography variant="h5" align="center">
-              {" Nanny Care "}
+              {" UBS "}
             </Typography>
             <MobileRightMenuSlider
               open={state.right}
