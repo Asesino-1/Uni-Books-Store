@@ -107,10 +107,10 @@ export default class CreatePost extends Component {
                 value={this.state.name}
                 onChange={this.handelChangePlace}
                 required>
-                  <option>amman </option>
-                  <option>irbid </option>
-                  <option>aqaba </option>
-                  <option>karak </option>
+                  <option>Amman </option>
+                  <option>Irbid </option>
+                  <option>Aqaba </option>
+                  <option>Karak </option>
                   </select>
               <label>Phone number: </label>
             <input  type="number"

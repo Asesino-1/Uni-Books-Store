@@ -47,6 +47,7 @@ function App(props) {
     <Router>
       
       <Navbar />
+      <br/><br/><br/>
       <Switch
         isOn={value}
         handleToggle={() => setValue(themeToggler)}

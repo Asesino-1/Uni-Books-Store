@@ -68,7 +68,7 @@ const LoggedOutNavbar = (props) => {
   return (
     <>
       <Box component="nav">
-        <AppBar style={{ background: "#cc6699" }}>
+        <AppBar style={{ background: "#1F2236" }}>
           <Toolbar>
             <IconButton onClick={toggle("right", true)}>
               <MenuIcon style={{ color: "#ffffff" }} />

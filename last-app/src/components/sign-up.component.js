@@ -97,24 +97,6 @@ export default class CreateUser extends Component {
                 value={this.state.name}
                 onChange={this.handelChangeUsername}
                 />
-                <label>Email: </label>
-            <input  type="email"
-                required
-                className="form-control"
-                name="email"
-                placeholder="email"
-                value={this.state.name}
-                onChange={this.handelChangeEmail}
-                />
-              <label>Password: </label>
-            <input  type="Password"
-                required
-                className="form-control"
-                name="password"
-                placeholder="password"
-                value={this.state.name}
-                onChange={this.handelChangePassword}
-                />
                <label>First Name: </label>
             <input  type="text"
                 required
@@ -132,6 +114,24 @@ export default class CreateUser extends Component {
                 placeholder="last name"
                 value={this.state.name}
                 onChange={this.handelChangeLastname}
+                />
+                <label>Email: </label>
+            <input  type="email"
+                required
+                className="form-control"
+                name="email"
+                placeholder="email"
+                value={this.state.name}
+                onChange={this.handelChangeEmail}
+                />
+                 <label>Password: </label>
+            <input  type="Password"
+                required
+                className="form-control"
+                name="password"
+                placeholder="password"
+                value={this.state.name}
+                onChange={this.handelChangePassword}
                 />
 
 

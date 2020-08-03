@@ -62,19 +62,17 @@ export default class ShowPosts extends Component {
 {
   
   this.state.data.map((item,index) => (
-    <Card>
       <Form>
     <ul key={index}>
-  <li key ={item.phone} >{"phone number : " + item.phone  }</li><br/>
-  <li key ={item.details}>{"details : " + item.details}</li><br/>
-  <li key ={item.place}>{"city : " + item.place}</li> <br/>
-  <li style={{ color: 'green' }} key ={item.price}>{"Price : " + Price(item.price)}</li><br/>
-  <li key ={item.createdAt}>{"puplished at : " + takeDate(item.createdAt) + " At " + takeTime(item.createdAt)}</li>
+  <label key ={item.details}>{"details : " + item.details}</label><br/>
+  <label key ={item.phone} >{"phone number : " + item.phone  }</label><br/>
+  <label key ={item.place}>{"city : " + item.place}</label> <br/>
+  <label style={{ color: 'green' }} key ={item.price}>{"Price : " + Price(item.price)}</label><br/>
+  <label key ={item.createdAt}>{"puplished at : " + takeDate(item.createdAt) + " At " + takeTime(item.createdAt)}</label>
 
  <br/><br/><br/>
  </ul> 
  </Form>
- </Card>
  ))
 }
       </form>

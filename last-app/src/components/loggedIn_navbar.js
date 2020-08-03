@@ -23,9 +23,9 @@ handleLogout = () => {
       <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
         <ul className="navbar-nav mr-auto">
             
-          <Link to="/homepage" className="nav-link">Homepage</Link>
-          <Link to="/profile" className="nav-link">Profile</Link>
-          <Link to="/post" className="nav-link" >Create new post</Link>
+          <Link to="/homepage" className="nav-link">Homepage |</Link>
+          <Link to="/profile" className="nav-link">Profile |</Link>
+          <Link to="/post" className="nav-link" >Create new post |</Link>
           <Link  onClick={() => this.handleLogout()} to="/" className="nav-link">Log out</Link>
 
         </ul>

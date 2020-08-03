@@ -32,18 +32,14 @@ class Profile extends Component {
     return (
       <div>
         <Form>
-          <span>email : {this.state.email} </span>
+        <span>Username : </span>
           <br></br>
           <span>First name : </span>
           <br></br>
           <span>Last name : </span>
           <br></br>
-          <span>Username : </span>
+          <span>email : {this.state.email} </span>
           <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <Button onClick={this.getData}>edit my profile</Button>
           <br></br>
           <br></br>
         </Form>
