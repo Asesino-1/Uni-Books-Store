@@ -16,7 +16,7 @@ router.route('/add').post((req, res) => {
       const phone = req.body.phone
       const place = req.body.place
       const img = req.body.img
-      const price = req.body.price
+      const price = req.body.price 
   
       const newPost = new Post({details,phone,place,img,price})
       
