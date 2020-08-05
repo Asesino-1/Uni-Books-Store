@@ -9,7 +9,6 @@ import {
   List,
   Typography,
   Box,
-  makeStyles,
   ListItemIcon,
 } from "@material-ui/core";
 import MobileRightMenuSlider from "@material-ui/core/Drawer";
@@ -17,13 +16,6 @@ import MenuIcon from "@material-ui/icons/Menu";
 import HomeIcon from "@material-ui/icons/Home";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import PersonAddIcon from "@material-ui/icons/PersonAdd";
-const useStyles = makeStyles({
-  drawerSlider: {
-    width: 250,
-    background: "#511",
-    height: "30rem",
-  },
-});
 const LoggedOutNavbar = (props) => {
   const itemsList = [
     {
@@ -52,7 +44,6 @@ const LoggedOutNavbar = (props) => {
   const toggle = (slider, open) => () => {
     setState({ ...state, [slider]: open });
   };
-  const classes = useStyles();
   const sideList = (slider) => (
     <Box onClick={toggle(slider, false)}>
       <List>

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Link } from "react-router-dom";
-import { Card, Form, Input, Button } from './AuthForm';
+import { Card, Form, Button } from './AuthForm';
 
 export default class CreatePost extends Component {
   constructor(props) {

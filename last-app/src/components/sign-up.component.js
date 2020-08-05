@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from "react-router-dom";
-import { Card, Logo, Form, Input, Button } from './AuthForm';
+import { Card, Logo, Form, Button } from './AuthForm';
 import logoImg from "./logo.jpg"
 
 export default class CreateUser extends Component {

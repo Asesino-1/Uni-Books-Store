@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom"
 import "bootstrap/dist/css/bootstrap.min.css"
-import Dashboard from './components/Dashboard';
 
 import Switch from "./components/Switch";
 
 
 import Navbar from "./components/navbar.component"
-import NewNavbar from "./components/loggedOut_navbar"
 
 import {ThemeProvider} from "styled-components";
 import { GlobalStyles } from "./components/globalStyles";

@@ -1,9 +1,6 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
-import { login } from "../utils";
-import Profile from "./profile";
-import { Card, Form, Input, Button } from './AuthForm';
+import {Form} from './AuthForm';
 
 export default class ShowPosts extends Component {
   constructor(props) {

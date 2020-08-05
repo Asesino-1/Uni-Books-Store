@@ -1,8 +1,5 @@
 import React, { Component } from "react";
-import { Button, Form, Card, Title } from "./AuthForm";
-import { useAuth } from "./auth";
-import { logout, isLogin } from "../utils";
-import { Redirect } from "react-router-dom";
+import { Form } from "./AuthForm";
 import axios from "axios";
 
 class Profile extends Component {
