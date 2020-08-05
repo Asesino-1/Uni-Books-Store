@@ -32,11 +32,14 @@ export default class Login extends Component {
   }
   onSubmit(e) {
     e.preventDefault();
+    // console.log(this.state,  'this is the state after updatd      ') its work and he see it
     const user = {
       email: this.state.email,
       password: this.state.password,
     };
     // console.log(user);
+    window.localStorage.setItem("myEmail",this.state.email);
+    // console.log(window.localStorage.getItem("myEmail")) it's work 
 
     axios
       .post("http://localhost:5000/users/login", user)
@@ -52,8 +55,8 @@ export default class Login extends Component {
             "Login Successed! ";
           this.handleLogin();
           // console.log("hi",this.state.email)
-
-          window.localStorage.setItem("myEmail",this.state.email);
+          // console.log(res.data)
+          // window.localStorage.setItem("myEmail",res.data);
           setTimeout(function(){ window.location = "/homepage";}, 1000);
           // setTimeout(()=> <Profile message="hello" /> ,  2000);
         }

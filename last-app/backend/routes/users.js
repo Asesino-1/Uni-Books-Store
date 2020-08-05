@@ -6,9 +6,9 @@ const router = require('express').Router()
 let User = require('../models/user.model')
 
 router.route('/get').get((req, res) => {
-  var email = req.body.email
-  console.log(req.body)
-  User.findOne({ email: email })
+  // var email = 'awselali77@gmail.com'
+  // console.log(req.body.params)
+  User.findOne({ email: req.query.email })
   .then(users => res.send((users))) 
 })
  router.route('/login').post(async(req, res) => {

@@ -62,7 +62,7 @@ export default class ShowPosts extends Component {
 {
   
   this.state.data.map((item,index) => (
-      <Form>
+      <Form key = {index+1}>
     <ul key={index}>
   <label key ={item.details}>{"details : " + item.details}</label><br/>
   <label key ={item.phone} >{"phone number : " + item.phone  }</label><br/>
