@@ -42,7 +42,7 @@ export default class Login extends Component {
     // console.log(window.localStorage.getItem("myEmail")) it's work 
 
     axios
-      .post("http://localhost:5000/users/login", user)
+      .post("https://ubs-r.herokuapp.com:5000/users/login", user)
       .then((res) => {
         if (res.data === "User not exist") {
           document.getElementById("loginResult").innerText =
