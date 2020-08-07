@@ -137,7 +137,7 @@ export default class CreateUser extends Component {
 
           </div>
           <div className="form-group">
-            <Button type="submit" className="btn btn-primary" >
+            <Button onClick={this.onSubmit} type="submit" className="btn btn-primary" >
               Sign up
             </Button>
           </div>
