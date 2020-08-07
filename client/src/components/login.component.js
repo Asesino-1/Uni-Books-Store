@@ -57,7 +57,7 @@ export default class Login extends Component {
           // console.log("hi",this.state.email)
           // console.log(res.data)
           // window.localStorage.setItem("myEmail",res.data);
-          setTimeout(function(){ window.location = "/homepage";}, 1000);
+          setTimeout(function(){ props.history.push("/homepage");}, 1000);
           // setTimeout(()=> <Profile message="hello" /> ,  2000);
         }
         // console.log(res.data.user.email);
