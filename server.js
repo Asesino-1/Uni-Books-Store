@@ -22,7 +22,7 @@ connection.once('open', () =>{
 })
 
 const usersRouter = require('./routes/users')
-const postsRouter = require('./routes/posts')
+const postsRouter = require('./routes/posts') 
 
 app.use('/users', usersRouter)
 app.use('/posts', postsRouter)
