@@ -16,7 +16,7 @@ class Profile extends Component {
 getData = ()=>{
   let that = this
   // console.log(that.state)
-  axios.get(`http://localhost:5000/users/get`, {params:{email:window.localStorage.getItem("myEmail")}}).then((res) => {
+  axios.get(`https://ubs-r.herokuapp.com:5000/users/get`, {params:{email:window.localStorage.getItem("myEmail")}}).then((res) => {
     // console.log(res)
     that.setState({
       email:res.data.email,
