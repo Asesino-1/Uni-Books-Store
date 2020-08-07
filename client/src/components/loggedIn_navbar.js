@@ -15,7 +15,7 @@ handleLogout = () => {
   this.setState({
       isLogin: false
   })
-   window.location = "/homepage"; 
+  props.history.push("/homepage"); 
 }
 
   render() {
