@@ -19,7 +19,7 @@ export default class ShowPosts extends Component {
     };
 
     axios
-      .get("https://ubs-r.herokuapp.com:5000/posts/get", post)
+      .get("http://localhost:5000/posts/get", post)
       .then((req) => {
           this.setState({data:req.data})
         
