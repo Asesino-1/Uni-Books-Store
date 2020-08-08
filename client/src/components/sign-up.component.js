@@ -133,6 +133,7 @@ export default class CreateUser extends Component {
                 value={this.state.name}
                 onChange={this.handelChangePassword}
                 />
+                <p style={{color: "red","font-size": "10px"}} >Password must have at least: 10 letters, 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character</p>
 
 
           </div>
